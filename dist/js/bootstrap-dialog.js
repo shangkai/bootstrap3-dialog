@@ -241,7 +241,9 @@
         animate: true,
         description: '',
         tabindex: -1,
-        btnsOrder: BootstrapDialog.BUTTONS_ORDER_CANCEL_OK
+        btnsOrder: BootstrapDialog.BUTTONS_ORDER_CANCEL_OK,
+        zIndexBackdrop: 1040,
+        zIndexModal: 1050
     };
 
     /**
@@ -332,8 +334,8 @@
          */
         updateZIndex: function () {
             if (this.isOpened()) {
-                var zIndexBackdrop = 1040;
-                var zIndexModal = 1050;
+                var zIndexBackdrop = this.options.zIndexBackdrop;
+                var zIndexModal = this.options.zIndexModal;
                 var dialogCount = 0;
                 $.each(BootstrapDialog.dialogs, function (dialogId, dialogInstance) {
                     if (dialogInstance.isRealized() && dialogInstance.isOpened()) {
